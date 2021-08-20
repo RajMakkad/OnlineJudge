@@ -1,5 +1,5 @@
 from django.shortcuts import render 
-from .models import Problems
+from .models import Problem
 from django.contrib.auth.decorators import login_required
 
 # from django.http import HttpResponse
@@ -31,7 +31,7 @@ def home(request):
 @login_required(login_url='blog-home')
 def problems(request):
     context = {
-        'problems': Problems.objects.all()
+        'problems': Problem.objects.all()
     }
     return render(request,'blog/problems.html',context)
 
