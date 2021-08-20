@@ -1,22 +1,19 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
+<h3 style="color: black ; text-decoration: underline; margin-top: 3%;" > Problem Set</h3>
+
     {% for i in problems %}
     
-    <article class="media content-section">
+    <section class="media content-section " style="margin-top: 3%;">
       <div class="media-body">
-        <div class="article-metadata">
-          <a class="mr-2" href="#">{{ i.Name }}</a>
-          <small class="text-muted">{{ i.date_posted }}</small>
-        </div>
-        <h2><a class="article-title" href="#">{{ i.Code }}</a></h2>
-        <p class="article-content">{{ i.Statement }}</p>
+        <a class="mr-2" href="#" style="text-decoration: none;">{{ i.Name }}</a>
+        <p class="article-content" style="float: right;">{{ i.Difficulty }}</p>
       </div>
-    </article>
+    </section>
 
     {% endfor %}
 
-    <h1> ProblemSet Page !</h1>
 
 {% endblock content %}
   

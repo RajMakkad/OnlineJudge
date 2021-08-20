@@ -28,7 +28,8 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request,'blog/home.html',{'title':'OJ Home'})
 
-@login_required(login_url='blog-home')
+# @login_required(login_url='blog-home')
+
 def problems(request):
     context = {
         'problems': Problem.objects.all()
