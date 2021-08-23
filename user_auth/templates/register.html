@@ -15,7 +15,7 @@
     
     <title>OJ-Registration</title>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'users/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'user_auth/main.css' %}">
 
 </head>
 <body>
@@ -23,21 +23,21 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
           <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Online Judge</a>
+            <a class="navbar-brand mr-4" href="{% url 'home' %}">Online Judge</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href="{% url 'blog-problems' %}">Problem Set</a>
-                <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+                <a class="nav-item nav-link" href="{% url 'problems' %}">Problem Set</a>
+                <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
               </div>
             </div>
           </div>
         </nav>
     </header>
 
-    <form action="/users/register/" method="POST" >
+    <form action="/auth/register/" method="POST" >
 
         {% csrf_token %}
 

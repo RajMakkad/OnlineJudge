@@ -1,6 +1,5 @@
-from django.shortcuts import render 
+from django.shortcuts import render
 from .models import Problem
-from django.contrib.auth.decorators import login_required
 
 # from django.http import HttpResponse
 
@@ -25,16 +24,19 @@ from django.contrib.auth.decorators import login_required
 #     }
 # ]
 
+
 def home(request):
-    return render(request,'blog/home.html',{'title':'OJ Home'})
+    return render(request, 'home.html', {'title': 'OJ Home'})
 
 # @login_required(login_url='blog-home')
+
 
 def problems(request):
     context = {
         'problems': Problem.objects.all()
     }
-    return render(request,'blog/problems.html',context)
+    return render(request, 'problems.html', context)
+
 
 def about(request):
-    return render(request,'blog/about.html',{'title':'About_title'})
+    return render(request, 'about.html', {'title': 'About_title'})
