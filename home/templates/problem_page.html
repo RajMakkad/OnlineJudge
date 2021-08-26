@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- <h3 style="color: black ; margin-top: 3%;" > Problem Page - {{ problem.primarykey}}</h3> -->
+
+<div class="container-lg" style="margin: 1% 0 0 -3%; width: 120%;" >
+    
+    <div class="sticky-md-top"><h2>{{problem.Name}} - {{ problem.primarykey}}</h2></div>
+           
+    <hr>
+    
+    <div style="font-size: 110%;">
+        {{problem.Statement}}
+    </div>
+
+    <br>
+
+    <div style="font-size: 110%;">
+        <h5>Sample Test Case</h5>
+        <hr>
+        <h6>Input: {{problem.Input}}</h6>
+        <h6>Output: {{problem.Output}}</h6>
+
+    </div>
+
+    <hr>
+
+    <form action = "{% url 'submit_n' problem.primarykey %}" method = "POST" style="margin: 7% 0 4% 0; ">
+        {% csrf_token %} 
+      <fieldset >
+        
+          <div class="mb-3">
+          <label for="user_solution" class="form-label"><h6>Submit code:</h6></label>
+          <textarea class="form-control" name="user_solution"  id="user_solution" rows="20"></textarea>
+           </div>
+        <div class="mb-3">
+          <label for="language" class="form-label"><h6>Select language</h6></label>
+          <select id="language" name="language" class="form-select" >
+            <option>C++</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" >Submit</button>
+      </fieldset>
+    </form>
+   
+   
+ </div>
+
+
+{% endblock content %}
+  
+     
+     
+   

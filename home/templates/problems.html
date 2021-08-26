@@ -1,13 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 
-<h3 style="color: black ; text-decoration: underline; margin-top: 3%;" > Problem Set</h3>
+<h3 style="color: black ; margin-top: 3%;" > Problem Set</h3>
 
     {% for i in problems %}
     
     <section class="media content-section " style="margin-top: 3%;">
       <div class="media-body">
-        <a class="mr-2" href="#" style="text-decoration: none;">{{ i.Name }}</a>
+        <a class="mr-2" href="{% url 'problem_page' i.primarykey %}" style="text-decoration: none;">{{ i.primarykey }}. {{  i.Name }}</a>
         <p class="article-content" style="float: right;">{{ i.Difficulty }}</p>
       </div>
     </section>

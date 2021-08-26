@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render 
 from .models import Problem
+from django.contrib.auth.decorators import login_required
 
 # from django.http import HttpResponse
 
@@ -25,14 +26,24 @@ from .models import Problem
 # ]
 
 
-def home(request):
-    return render(request, 'home.html', {'title': 'OJ Home'})
-
-# @login_required(login_url='blog-home')
-
-
 def problems(request):
     context = {
+        'problems': Problem.objects.all()
+    }
+    return render(request, 'problems.html', context)
+
+
+@login_required(login_url='problem_page')
+def problem_page(request,prob_id):
+    context = {
+        'problem': Problem.objects.get(primarykey = prob_id)
+    }
+    return render(request, 'problem_page.html', context)
+
+# Need to fix
+def submit(request,prob_id):
+    if request.method == 'POST' :
+        context = {
         'problems': Problem.objects.all()
     }
     return render(request, 'problems.html', context)

@@ -5,9 +5,12 @@ from django.contrib.auth.models import User
 
 class Problem(models.Model):
     Statement = models.TextField()
+    primarykey = models.IntegerField(default=0)
     Name = models.CharField(max_length=200)
     Code = models.TextField()
     Difficulty = models.CharField(max_length=200)
+    Input = models.TextField(default=0)
+    Output = models.TextField(default=0)
 
 
 class Solution(models.Model):
