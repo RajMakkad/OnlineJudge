@@ -33,7 +33,7 @@ def problems(request):
     return render(request, 'problems.html', context)
 
 
-@login_required(login_url='problem_page')
+@login_required(login_url='problems')
 def problem_page(request,prob_id):
     context = {
         'problem': Problem.objects.get(primarykey = prob_id)
@@ -51,3 +51,6 @@ def submit(request,prob_id):
 
 def about(request):
     return render(request, 'about.html', {'title': 'About_title'})
+
+
+
